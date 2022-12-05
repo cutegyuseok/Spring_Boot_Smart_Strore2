@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><head>
+<head>
+    <meta charset="UTF-8">
+    <title>signUp</title>
+</head>
+<body>
+<main>
+  <div>회원가입</div>
+  <div>
+    <form method="post" accept-charset="utf-8" action="/doSignUp">
+      <div class="form__list">
+        <label for="userID">ID: </label>
+        <input type="text" id="userID" name="userID" placeholder="INPUT YOUR ID" required/>
+      </div>
+
+      <div class="form__list">
+        <label for="userPassword">PASSWORD: </label>
+        <input type="password" id="userPassword" name="userPassword" placeholder="INPUT YOUR PASSWORD" required/>
+      </div>
+
+      <div class="form__list">
+        <label for="userName">NAME: </label>
+        <input type="text" id="userName" name="userName" placeholder="INPUT YOUR NAME" required/>
+      </div>
+
+      <div class="form__list">
+        <label for="userEmail">EMAIL: </label>
+        <input type="text" id="userEmail" name="userEmail" placeholder="INPUT YOUR EMAIL" required/>
+      </div>
+
+      <div class="form__list">
+        <label for="userStoreName">STORE NAME: </label>
+        <input type="text" id="userStoreName" name="userStoreName" placeholder="INPUT YOUR STORE NAME" required/>
+      </div>
+
+      <input type="submit" name="submit" value="Submit">
+    </form>
+  </div>
+</main>
+
+</body>
+</html>
