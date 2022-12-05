@@ -8,8 +8,8 @@
         values((#{userID}),(#{userPassword}),(#{userEmail}),(#{userName}),(#{userStoreName}));
     </insert>
 
-    <select id="login" parameterType="string" resultType="java.util.HashMap">
-        select * from user where email =(#{email})
+    <select id="login" parameterType="string" resultType="HashMap">
+        select * from user where ID =(#{id})
     </select>
 
 </mapper>

@@ -1,5 +1,6 @@
 package com.example.bootstore.user.service;
 
+import com.example.bootstore.user.DTO.userDTO;
 import com.example.bootstore.user.repository.userRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,5 +25,20 @@ public class userService {
             return result;
         }
     }
+
+    public userDTO login(HashMap<String,String> loginInfo){
+        System.out.println(loginInfo.toString());
+        try {
+            String id = loginInfo.get("userID");
+            if(loginInfo.get("userPassword").equals(userRepository.login(id).get("PASSWORD"))){
+                HashMap<String,String> result = userRepository.login(id);
+                return new userDTO(result.get("ID"),result.get("STORE_NAME"),result.get("EMAIL"), result.get("NAME"));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
 }

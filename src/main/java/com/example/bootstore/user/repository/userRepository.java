@@ -16,4 +16,8 @@ public class userRepository {
         return userMapper.signup(signupInfo);
     }
 
+    public HashMap<String,String> login(String id){
+       return userMapper.login(id);
+    }
+
 }

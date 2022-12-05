@@ -8,4 +8,6 @@ import java.util.HashMap;
 public interface userMapper {
 
     public int signup(HashMap<String,String> signupInfo);
+    public HashMap<String,String> login(String id);
+
 }

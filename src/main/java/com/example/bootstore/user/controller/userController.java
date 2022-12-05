@@ -1,5 +1,6 @@
 package com.example.bootstore.user.controller;
 
+import com.example.bootstore.user.DTO.userDTO;
 import com.example.bootstore.user.service.userService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,12 +20,18 @@ public class userController {
 
     @PostMapping("/doLogin")
     public String doLogin(@RequestParam HashMap<String,String> loginInfo){
-        return null;
+            userDTO userDTO = userService.login(loginInfo);
+            if (userDTO != null) {
+                session.setAttribute("SESSION_INFO", userDTO);
+                return "LoginStatus/storeAdminPage";
+            } else {
+                return "nonLoginStatus/login";
+            }
     }
 
     @PostMapping("/doSignUp")
     public String doSignUp(@RequestParam HashMap<String,String> signupInfo){
-        if (session.getAttribute("SESSION_ID")!=null)return "LoginStatus/storeAdminPage";
+        if (session.getAttribute("SESSION_INFO")!=null)return "LoginStatus/storeAdminPage";
         if(userService.signup(signupInfo)){
             return "LoginStatus/storeAdminPage";
         }else {
